@@ -7,9 +7,9 @@ use CryptoTrade\App\Api\CryptoApi;
 class Tasks
 {
     private CryptoApi $cryptoApi;
-    public function __construct(string $api, string $url)
+    public function __construct(string $ap)
     {
-        $this->cryptoApi = new CoinMC($api, $url);
+        $this->cryptoApi = new CoinMC($api);
     }
     private function latest(): array
     {
