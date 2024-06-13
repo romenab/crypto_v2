@@ -7,12 +7,10 @@ use CryptoTrade\App\Currency;
 class CoinMC implements CryptoApi
 {
     protected string $api;
-    protected string $url;
 
-    public function __construct(string $api, string $url)
+    public function __construct(string $api)
     {
         $this->api = $api;
-        $this->url = $url;
     }
 
     public function getResponse(): array
@@ -28,7 +26,7 @@ class CoinMC implements CryptoApi
             'X-CMC_PRO_API_KEY: ' . $this->api,
         ];
         $qs = http_build_query($parameters);
-        $request = "{$this->url}?{$qs}";
+        $request = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?{$qs}";
 
 
         $curl = curl_init();
