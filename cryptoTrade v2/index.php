@@ -10,9 +10,8 @@ require_once 'vendor/autoload.php';
 $dotenv = Dotenv::createImmutable(__DIR__ );
 $dotenv->load();
 $api = $_ENV['MY_API'];
-$url= $_ENV['MY_URL'];
-$tasks = new Tasks($api, $url);
-$wallet = new Wallet($api, $url, 1000);
+$tasks = new Tasks($api);
+$wallet = new Wallet($api, 1000);
 $wallet->load("transactions.json");
 $show = new Display($tasks, $wallet);
 while (true) {
