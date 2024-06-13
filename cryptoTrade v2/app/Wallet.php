@@ -11,9 +11,9 @@ class Wallet
     private array $transactions;
     private array $owned;
 
-    public function __construct(string $api, string $url, int $money, array $transactions = [], array $owned = [])
+    public function __construct(string $api, int $money, array $transactions = [], array $owned = [])
     {
-        $this->cryptoApi = new CoinMC($api, $url);
+        $this->cryptoApi = new CoinMC($api);
         $this->money = $money;
         $this->transactions = $transactions;
         $this->owned = $owned;
