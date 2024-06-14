@@ -40,7 +40,7 @@ class Wallet
         $cryptoList = $this->cryptoApi->getResponse();
         foreach ($cryptoList as $item) {
             if ($userCrypto === $item->getName()) {
-                $price = $item->getName();
+                $price = $item->getPrice();
                 $totalCrypto = $userAmount / $price;
                 $purchase = strtolower(readline("Are you sure you want to purchase {$item->getName()} for $$userAmount (y/n)? "));
                 if ($purchase === "n" || $purchase === "no") {
